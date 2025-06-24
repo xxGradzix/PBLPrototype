@@ -2,6 +2,7 @@
 package com.gradzix.PBLPrototype.healthapi.service;
 
 import com.gradzix.PBLPrototype.healthapi.dtos.HealthyProductResponse;
+import com.gradzix.PBLPrototype.healthapi.dtos.MealSuggestionResponse;
 import com.gradzix.PBLPrototype.healthapi.dtos.MediaItem;
 import org.springframework.stereotype.Service;
 
@@ -63,6 +64,19 @@ public class HealthService {
         MediaItem mediaItem2 = new MediaItem("https://www.youtube.com/watch?v=kxjudArh0pM", "youtube", "Secrets of a Healthy eating");
         return List.of(mediaItem, mediaItem1, mediaItem2);
 
+    }
+
+    public MealSuggestionResponse suggestMeals(int calories, int proteinPercent, int fatPercent, int carbPercent) {
+        // Mockowana logika
+        if (calories < 500) {
+            return new MealSuggestionResponse("Sałatka z kurczakiem", 300, 30, 10, 20);
+        } else if (proteinPercent > 30) {
+            return new MealSuggestionResponse("Grillowany łosoś z warzywami", 600, 40, 20, 30);
+        } else if (fatPercent > 30) {
+            return new MealSuggestionResponse("Awokado z jajkiem", 600, 20, 40, 30);
+        } else {
+            return new MealSuggestionResponse("Makaron pełnoziarnisty z warzywami", 700, 25, 15, 60);
+        }
     }
 
 }

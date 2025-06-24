@@ -14,11 +14,11 @@ import java.util.stream.Collectors;
 @Service
 public class HealthService {
 
-    private final AiService aiService;
-
-    public HealthService(AiService aiService) {
-        this.aiService = aiService;
-    }
+//    private final AiService aiService;
+//
+//    public HealthService(AiService aiService) {
+//        this.aiService = aiService;
+//    }
 
     public HealthyProductResponse suggestHealthyProducts(List<String> ingredients) throws IOException {
 
@@ -26,11 +26,12 @@ public class HealthService {
                 + String.join(", ", ingredients)
                 + ". Provide only the names of the products as a comma-separated list.";
 
-        String aiResponse = aiService.getCompletion(prompt);
-
-        List<String> products = parseCommaSeparatedList(aiResponse);
-
-        return new HealthyProductResponse(products);
+//        String aiResponse = aiService.getCompletion(prompt);
+//
+//        List<String> products = parseCommaSeparatedList(aiResponse);
+//
+//        return new HealthyProductResponse(products);
+        return new HealthyProductResponse(List.of("Oatmeal", "Greek Yogurt", "Almonds")); // Mocked response for demonstration
     }
 
     private List<String> parseCommaSeparatedList(String aiResponse) {
@@ -44,17 +45,17 @@ public class HealthService {
         String prompt = "Please provide 3 recommendations of valuable health-related media (podcasts, YouTube channels, blogs) focused on nutrition, health, and fitness. Provide only the names and titles as a comma-separated list.";
 
         List<MediaItem> mediaList;
-        try {
-            String aiResponse = aiService.getCompletion(prompt);
-            List<String> mediaListStrings = parseCommaSeparatedList(aiResponse);
-
-            mediaList = mediaListStrings.stream()
-                    .map(media -> new MediaItem(media, "unknown", media))
-                    .collect(Collectors.toList());
-
-        } catch (Exception e) {
+//        try {
+//            String aiResponse = aiService.getCompletion(prompt);
+//            List<String> mediaListStrings = parseCommaSeparatedList(aiResponse);
+//
+//            mediaList = mediaListStrings.stream()
+//                    .map(media -> new MediaItem(media, "unknown", media))
+//                    .collect(Collectors.toList());
+//
+//        } catch (Exception e) {
             mediaList = getDefaultMediaItems();
-        }
+//        }
         return  mediaList;
     }
 

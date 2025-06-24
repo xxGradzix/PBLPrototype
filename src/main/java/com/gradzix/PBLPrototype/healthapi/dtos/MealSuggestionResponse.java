@@ -17,4 +17,18 @@ public class MealSuggestionResponse {
         this.fats = fats;
         this.carbs = carbs;
     }
+
+
+    public String getMeal() { return meal; }
+    public int getCalories() { return calories; }
+    public int getProteins() { return proteins; }
+    public int getFats() { return fats; }
+    public int getCarbs() { return carbs; }
+
+    public void setMeal(String meal) { this.meal = meal; }
+    public void setCalories(int calories) { this.calories = calories; }
+    public void setProteins(int proteins) { this.proteins = proteins; }
+    public void setFats(int fats) { this.fats = fats; }
+    public void setCarbs(int carbs) { this.carbs = carbs; }
+
 }
